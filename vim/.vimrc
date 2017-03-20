@@ -107,6 +107,7 @@
 " searching {{{
   set hlsearch      " highlight search terms
   set incsearch     " show search matches as you type
+  set ignorecase
   set smartcase     " ignore case if search pattern is all lowercase,
                     "    case-sensitive otherwise
   " clears search highlight
@@ -202,13 +203,36 @@
       \}
 " }}}
 
+" custom functions {{{
+  " strips trailing whitespace at the end of files. this
+  " is called on buffer write in the autogroup above.
+  function! StripTrailingWhitespaces()
+      " save last search & cursor position
+      let _s=@/
+      let l = line(".")
+      let c = col(".")
+      %s/\s\+$//e
+      let @/=_s
+      call cursor(l, c)
+  endfunction
+  
+  "Delete all hidden buffers
+  function DeleteHiddenBuffers()
+      let tpbl=[]
+      call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+      for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+          silent execute 'bwipeout' buf
+      endfor
+  endfunction
+
+" }}}
+
 " autogroups {{{
   " language specific settings
   augroup configgroup
       autocmd!
       autocmd VimEnter * highlight clear SignColumn
-      autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md
-                  \:call <SID>StripTrailingWhitespaces()
+      autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md call StripTrailingWhitespaces()
       autocmd FileType java setlocal noexpandtab
       autocmd FileType java setlocal list
       autocmd FileType java setlocal listchars=tab:+\ ,eol:-
@@ -229,30 +253,6 @@
       autocmd BufEnter *.sh setlocal shiftwidth=2
       autocmd BufEnter *.sh setlocal softtabstop=2
   augroup END
-" }}}
-
-" custom functions {{{
-  " strips trailing whitespace at the end of files. this
-  " is called on buffer write in the autogroup above.
-  function! <SID>StripTrailingWhitespaces()
-      " save last search & cursor position
-      let _s=@/
-      let l = line(".")
-      let c = col(".")
-      %s/\s\+$//e
-      let @/=_s
-      call cursor(l, c)
-  endfunction
-  
-  "Delete all hidden buffers
-  function DeleteHiddenBuffers()
-      let tpbl=[]
-      call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
-      for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
-          silent execute 'bwipeout' buf
-      endfor
-  endfunction
-
 " }}}
 
 " non-leader key mappings {{{
