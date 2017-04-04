@@ -4,7 +4,7 @@ c = get_config()
 
 # set autoreload
 c.InteractiveShellApp.extensions = ['autoreload']
-c.InteractiveShellApp.exec_lines = ['%autoreload 2']
+c.InteractiveShellApp.exec_lines = ['%autoreload 2', 'import pandas as pd', 'import numpy as np']
 c.InteractiveShellApp.exec_lines.append('print("Warning: disable autoreload in ipython_config.py to improve performance.")')
 
 #------------------------------------------------------------------------------
