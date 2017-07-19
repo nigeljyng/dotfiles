@@ -12,6 +12,7 @@ alias rmds='find . -name '.DS_Store' -type f -delete'  # remove .DS_Store
 alias cf1='caffeinate -t 3600 &'  # caffeinate for an hour
 alias cf2='caffeinate -t 7200 &'  # caffeinate for two hours
 alias jupyter_notebook='jupyter notebook > /dev/null 2>&1'  # no output
+eval $(thefuck --alias fuck)
 
 #-----------------------------------------------------------------------------
 # General shell settings
