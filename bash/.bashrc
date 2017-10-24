@@ -46,6 +46,10 @@ fi
 # git completion
 source ~/.git-completion.bash
 
+# automatic yubikey integration
+eval "$(monzo-yubi shellinit)"
+yubi init > /dev/null
+
 #-----------------------------------------------------------------------------
 # Colorized man pages
 #-----------------------------------------------------------------------------
