@@ -28,7 +28,7 @@
   " styles for macvim. Not run if in terminal because it'll look weird
   if has("gui_running")
       set gfn=Inconsolata:h17  " love this font
-      colorscheme material   " theme color from vim-colorschemes plugin
+      colorscheme base16-ateliercave   " theme color from vim-colorschemes plugin
   
       " show cursor line in active buffer only
       au BufEnter * setlocal cursorline
@@ -89,6 +89,11 @@
       autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\)')
     endif
   endif
+
+  " custom highlight modifications
+  hi QuickFixLine cterm=None ctermbg=256 guibg=#005b5b
+  hi Search term=reverse ctermfg=8 ctermbg=3 guifg=#655f6d guibg=#b38b62
+  
 " }}}
 
 " spaces and tabs {{{
@@ -134,9 +139,6 @@
   " json formatting
   map <Leader>j !python -m json.tool<CR>
   
-  " Syntastic Toggle On Off
-  nmap <Leader>y :SyntasticToggleMode<CR>
-  
   " Use ; instead of : for commands. Saves a SHIFT keypress
   noremap ; :
   
@@ -155,6 +157,7 @@
 
 " plugin specific configurations {{{
   " Syntastic syntax checker
+  let g:syntastic_python_checkers = ['pyflakes']
   set statusline+=%#warningmsg#
   set statusline+=%{SyntasticStatuslineFlag()}
   set statusline+=%*
@@ -256,6 +259,9 @@
 " }}}
 
 " non-leader key mappings {{{
+  " Syntastic Toggle On Off
+  nnoremap <silent> <F5> :SyntasticToggleMode<CR>
+  
   " tagbar
   nmap <F8> :TagbarToggle<CR>
   
@@ -278,5 +284,5 @@
   nnoremap <C-P> :bprev<CR>
 " }}}
 
-
+" Set default fold for this file
 " vim: foldmethod=marker:foldlevel=0
