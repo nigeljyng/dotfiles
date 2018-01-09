@@ -92,7 +92,7 @@
 
   " custom highlight modifications
   hi QuickFixLine cterm=None ctermbg=256 guibg=#005b5b
-  hi Search term=reverse ctermfg=8 ctermbg=3 guifg=#655f6d guibg=#b38b62
+  hi Search ctermfg=8 ctermbg=3 guifg=#322f36 guibg=#b38b62
   
 " }}}
 
@@ -255,6 +255,13 @@
       autocmd BufEnter *.sh setlocal tabstop=2
       autocmd BufEnter *.sh setlocal shiftwidth=2
       autocmd BufEnter *.sh setlocal softtabstop=2
+  augroup END
+
+  " Persistent folds between sessions
+  augroup remember_folds
+    autocmd!
+    autocmd BufWinLeave *.* mkview
+    autocmd BufWinEnter *.* loadview
   augroup END
 " }}}
 
