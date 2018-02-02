@@ -271,6 +271,9 @@
   
   " tagbar
   nmap <F8> :TagbarToggle<CR>
+
+  " build ctags
+  map <f10> :!start /min ctags -R .<cr>
   
   " Split navigation
   nnoremap <C-J> <C-W><C-J>
