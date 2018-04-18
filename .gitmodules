@@ -1,0 +1,3 @@
+[submodule "vim/.vim/bundle/vim-tags"]
+	path = vim/.vim/bundle/vim-tags
+	url = https://github.com/szw/vim-tags.git

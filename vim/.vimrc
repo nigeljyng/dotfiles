@@ -156,6 +156,10 @@
 " }}}
 
 " plugin specific configurations {{{
+  " Vim-tags
+  " Don't auto generate
+  let g:vim_tags_auto_generate = 0
+
   " Syntastic syntax checker
   let g:syntastic_python_checkers = ['pyflakes']
   set statusline+=%#warningmsg#
@@ -273,7 +277,7 @@
   nmap <F8> :TagbarToggle<CR>
 
   " build ctags
-  map <f10> :!start /min ctags -R .<cr>
+  map <f10> :TagsGenerate!<cr>
   
   " Split navigation
   nnoremap <C-J> <C-W><C-J>

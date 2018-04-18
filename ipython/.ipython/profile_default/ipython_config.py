@@ -8,7 +8,11 @@ c.InteractiveShellApp.exec_lines = [
     '%autoreload 2',
     'import pandas as pd',
     'import numpy as np',
-    'PROJECT_DIR="."']
+    'PROJECT_DIR="."',
+    'import logging',  # make logging appear
+    'logger = logging.getLogger()',
+    'logger.setLevel(logging.DEBUG)',
+    ]
 c.InteractiveShellApp.exec_lines.append('print("Warning: disable autoreload in ipython_config.py to improve performance.")')
 
 #------------------------------------------------------------------------------
