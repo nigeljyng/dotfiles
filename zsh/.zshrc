@@ -1,3 +1,5 @@
+# DO NOT PUT SENSITIVE INFO IN THIS FILE!
+#
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -93,7 +95,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+
+prompt_context() {}  # no username in prompt
+
+export PATH=~/anaconda/bin:$PATH  # use anaconda as default python
+
 #-----------------------------------------------------------------------------
 # aliases
 #-----------------------------------------------------------------------------

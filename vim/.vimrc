@@ -27,7 +27,7 @@
   
   " styles for macvim. Not run if in terminal because it'll look weird
   if has("gui_running")
-      set gfn=Inconsolata:h17  " love this font
+      set gfn=Inconsolata:h16  " love this font
       colorscheme base16-ateliercave   " theme color from vim-colorschemes plugin
   
       " show cursor line in active buffer only
@@ -296,6 +296,10 @@
   " Ctrl N, ctrl-P for next and previous buffer
   nnoremap <C-N> :bnext<CR>
   nnoremap <C-P> :bprev<CR>
+
+  " NERDTree Toggle
+  map <C-f> :NERDTreeToggle<CR>
+  " 
 " }}}
 
 " Set default fold for this file
