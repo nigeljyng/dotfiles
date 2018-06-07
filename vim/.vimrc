@@ -18,6 +18,8 @@
   set noerrorbells
   set novisualbell
   set t_vb=
+
+  set encoding=utf-8
 " }}}
 
 " colors and UI {{{
