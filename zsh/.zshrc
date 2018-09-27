@@ -98,7 +98,9 @@ source $ZSH/oh-my-zsh.sh
 
 prompt_context() {}  # no username in prompt
 
-export PATH=~/anaconda/bin:$PATH  # use anaconda as default python
+#export PATH=~/anaconda/bin:$PATH  # use anaconda as default python
+export PYTHONDONTWRITEBYTECODE=1
+eval "$(pyenv virtualenv-init -)"  # pyenv
 
 #-----------------------------------------------------------------------------
 # aliases

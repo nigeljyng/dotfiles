@@ -158,27 +158,15 @@
 " }}}
 
 " plugin specific configurations {{{
+
+  " Flake 8
+  let g:flake8_show_in_gutter=1
+  let g:flake8_quickfix_height=8
+  
   " Vim-tags
   " Don't auto generate
   let g:vim_tags_auto_generate = 0
 
-  " Syntastic syntax checker
-  let g:syntastic_python_checkers = ['pyflakes']
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 0
-  let g:syntastic_check_on_wq = 0
-  " python line length
-  let g:syntastic_python_flake8_post_args="--max-line-length=120"
-  " R syntax checking
-  let g:syntastic_enable_r_lintr_checker = 1
-  let g:syntastic_r_checkers = ['lintr']
-  " Turn off Syntastic when startup
-  let g:syntastic_mode_map={"mode": "passive"}
-  
   " vim-slime to tmux
   let g:slime_target = "tmux"
   let g:slime_python_ipython = 1
@@ -272,8 +260,6 @@
 " }}}
 
 " non-leader key mappings {{{
-  " Syntastic Toggle On Off
-  nnoremap <silent> <F5> :SyntasticToggleMode<CR>
   
   " tagbar
   nmap <F8> :TagbarToggle<CR>
