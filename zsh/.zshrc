@@ -119,6 +119,7 @@ alias gs='git status'
 alias gd='git diff -w'
 alias gp='git push origin HEAD'  # push the current branch to the same name on the remote
 alias gc='git commit'
+alias gbr='git branch | grep -v "master" | xargs git branch -D'  # deletes all local branches except master
 
 #-----------------------------------------------------------------------------
 # Monzo starter pack additions
